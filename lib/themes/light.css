@@ -1,0 +1,32 @@
+:root {
+    /* --- CONTROLE DE TAMANHO --- */
+    --base-size: 32px;
+
+    /* --- PALETA DE CORES (Light Theme) --- */
+    --bg-app: #f0f2f5;
+    /* Fundo da aplicação (cinza bem claro) */
+    --bg-slide: #ffffff;
+    /* Slide branco */
+    --bg-panel: #eef1f6;
+    /* Paineis/colunas num tom levemente separado */
+
+    --text-primary: #2c3e50;
+    /* Texto escuro quase preto */
+    --text-secondary: #5e6d82;
+    /* Texto secundário cinza médio */
+
+    --accent-color: #3498db;
+    /* Um azul mais sólido para light mode */
+
+    --border-radius-lg: 24px;
+    --border-radius-md: 12px;
+
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "Fira Code", "Consolas", monospace;
+
+    /* Ajustes específicos para Light Mode */
+    --code-bg: rgba(0, 0, 0, 0.06);
+    --code-color: #c7254e;
+
+    --table-border: rgba(0, 0, 0, 0.1);
+}

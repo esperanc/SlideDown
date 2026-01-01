@@ -1,0 +1,440 @@
+/* :root variáveis movidas para themes/default.css e themes/light.css */
+
+/* Aplica o tamanho base para todo o sistema (rem será baseado nisso) */
+html {
+  font-size: var(--base-size);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  /* Evita efeito elástico no Mac */
+  overscroll-behavior: none;
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+#scrolly-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-panel) var(--bg-app);
+}
+
+/* --- SLIDE (Estilo Card Flutuante) --- */
+.slide {
+  height: calc(100vh - 40px);
+  width: calc(100% - 40px);
+  margin: 20px auto;
+
+  scroll-snap-align: center;
+
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 3rem;
+
+  background-color: var(--bg-slide);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+/* --- REVEAL SLIDES STRUCTURE --- */
+/* Quando o slide tem reveals, ele se torna apenas uma faixa de rolagem (track) invisível */
+.slide.has-reveal {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  overflow: visible;
+  /* Necessário para sticky funcionar */
+  padding: 0;
+}
+
+/* O conteúdo interno assume a aparência do Card e fixa na tela */
+.slide-content {
+  background-color: var(--bg-slide);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  position: sticky;
+  top: 20px;
+  /* Mantém a margem visual original */
+  height: calc(100vh - 40px);
+  /* Mesma altura visual do slide original */
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  /* Padding movido do slide para cá */
+  box-sizing: border-box;
+  overflow: hidden;
+  /* Corta o conteúdo interno (cantos arredondados) */
+}
+
+/* --- LAYOUTS (GRID/FLEX) --- */
+.layout-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  width: 100%;
+  gap: 2%;
+  min-height: 0;
+}
+
+.layout-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  gap: 2%;
+  min-height: 0;
+}
+
+/* Centralização (::: center / ::: section) */
+.layout-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Feedback visual para blocos desconhecidos */
+.layout-unknown {
+  border: 1px dashed #ff4444;
+  padding: 1rem;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff4444;
+}
+
+/* Filhos diretos (Painéis) */
+.layout-row>*,
+.layout-col>* {
+  flex: 1;
+  overflow-y: auto;
+  min-width: 0;
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-panel) transparent;
+}
+
+/* --- COMPONENTES BÁSICOS --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* --- EMBEDS (YouTube, Iframe) --- */
+.responsive-embed {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-panel);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.responsive-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* --- ZOOM WRAPPER (Imagens com Zoom) --- */
+.zoom-wrapper {
+  flex: 1;
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /*background: var(--bg-panel); */
+  display: flex;
+}
+
+.zoom-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform-origin: 0 0;
+  transition: transform 0.25s ease;
+  will-change: transform;
+  cursor: zoom-in;
+  display: block;
+}
+
+/* --- MARKDOWN CONTENT --- */
+.md-content {
+  flex: 0 0 auto;
+  line-height: 1.2;
+  font-size: 1.05rem;
+  /* Medida relativa à base */
+}
+
+.md-content h1 {
+  font-size: 2.0rem;
+  /* Aumentado */
+  font-weight: 700;
+  margin-block-start: 0em;
+  /* background: linear-gradient(90deg, #fff, #a0a0b0); */
+  background-clip: text;
+  -webkit-background-clip: text;
+  letter-spacing: -1px;
+}
+
+.md-content h2 {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5em;
+}
+
+.md-content h3 {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5em;
+}
+
+.md-content ul,
+.md-content ol {
+  margin-left: 0.5em;
+  color: var(--text-secondary);
+}
+
+.md-content li {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+.md-content a {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-color);
+  transition: all 0.2s;
+}
+
+.md-content a:hover {
+  background: rgba(122, 162, 247, 0.1);
+}
+
+.md-content code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: #ff9e64;
+}
+
+.md-content pre {
+  background: var(--bg-panel);
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.md-content pre code {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0;
+}
+
+.md-content blockquote {
+  border-left: 4px solid var(--accent-color);
+  margin: 1em 0;
+  padding: 1rem;
+  background: rgba(122, 162, 247, 0.05);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.md-content table {
+  margin: 1rem auto;
+  border-collapse: collapse;
+}
+
+.md-content table th,
+.md-content table td {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* --- RESPONSIVIDADE (Mobile) --- */
+@media (max-width: 768px) {
+  .slide {
+    height: calc(100vh - 20px);
+    width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+  }
+
+  .layout-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .layout-row>*,
+  .layout-col>* {
+    flex: 0 0 auto;
+  }
+
+  .md-content h1 {
+    font-size: 2rem;
+  }
+
+  .md-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* --- NAVEGAÇÃO LATERAL (DOTS) --- */
+#slide-nav {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.nav-dot.active {
+  background-color: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+  transform: scale(1.3);
+  border-color: transparent;
+}
+
+
+/* --- TELA DE MENU (Home) --- */
+
+#menu-container {
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: var(--bg-app);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  /* Garante alinhamento geral */
+}
+
+#menu-container h1 {
+  font-size: 3.5rem;
+  margin: 0 0 1rem 0;
+  background: linear-gradient(90deg, #fff, #a0a0b0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Link da Doc */
+#menu-container>p {
+  margin-bottom: 3rem;
+}
+
+/* Wrapper da Lista (Fix para centralizar) */
+#list-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#presentation-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#presentation-list a {
+  display: block;
+  padding: 1.5rem;
+  background: var(--bg-slide);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius-md);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#presentation-list a:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-color);
+  background: var(--bg-panel);
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --- PROGRESSIVE REVEAL --- */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+li.reveal-item {
+  margin-bottom: 0.8em;
+}

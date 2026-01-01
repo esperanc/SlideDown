@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - SlideDown</title>
+    
+    <link rel="stylesheet" href="lib/style.css">
+
+    <style>
+        /* Estilos específicos para a página de documentação (Layout de Artigo) */
+        body {
+            overflow-y: auto; /* Permite scroll normal, diferente dos slides */
+        }
+
+        .doc-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Cabeçalho da Doc */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            background: linear-gradient(90deg, #fff, #a0a0b0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        /* Botão de Voltar */
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            text-decoration: none;
+            border-radius: var(--border-radius-md);
+            transition: all 0.2s;
+        }
+        .btn-back:hover {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Tipografia do Conteúdo */
+        .doc-content h2 {
+            margin-top: 3rem;
+            color: var(--accent-color);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .doc-content h3 {
+            margin-top: 2rem;
+            color: var(--text-primary);
+        }
+
+        .doc-content p, .doc-content li {
+            line-height: 1.8;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .doc-content code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            color: #ff9e64;
+        }
+
+        .doc-content pre {
+            background: var(--bg-panel);
+            padding: 20px;
+            border-radius: var(--border-radius-md);
+            overflow-x: auto;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .doc-content pre code {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0;
+        }
+
+        /* Tabela de Blocos */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--bg-panel);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        th {
+            background: rgba(255,255,255,0.05);
+            color: var(--text-primary);
+        }
+        td {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="doc-container">
+    <header>
+        <h1>SlideDown</h1>
+        <p>Documentação Oficial do Sistema</p>
+        <a href="index.html" class="btn-back">← Voltar ao Menu</a>
+    </header>
+
+    <div class="doc-content">
+        <p>O <strong>SlideDown</strong> é um sistema web leve e modular para criar apresentações no estilo <em>scrollytelling</em>. Ele permite escrever slides usando uma linguagem de texto baseada em Markdown, suportando layouts complexos, multimídia e interatividade, sem a necessidade de escrever HTML manualmente.</p>
+
+        <h2>1. Visão Geral e Arquitetura</h2>
+        <p>O sistema funciona como uma <em>Single Page Application</em> (SPA) estática.</p>
+        <ol>
+            <li><strong>Engine Universal (<code>index.html</code>):</strong> Carrega os scripts principais e gerencia o estado da aplicação.</li>
+            <li><strong>Parser (<code>parser.js</code>):</strong> Lê arquivos <code>.md</code> e os converte em uma Árvore de Sintaxe Abstrata (AST) JSON.</li>
+            <li><strong>Renderer (<code>renderer.js</code>):</strong> Recebe a AST e gera o DOM HTML dinamicamente, aplicando classes CSS e scripts de comportamento.</li>
+            <li><strong>Navegação (<code>navigation.js</code>):</strong> Gerencia o scroll, atalhos de teclado e persistência de sessão.</li>
+        </ol>
+
+        <h2>2. Como Rodar</h2>
+        <p>Devido às políticas de segurança dos navegadores (CORS), o SlideDown não pode carregar arquivos locais diretamente. É necessário um servidor HTTP local.</p>
+        <pre><code># Python 3
+python -m http.server
+
+# Node.js
+npx http-server</code></pre>
+        <p>Acesse <code>http://localhost:8000</code> no seu navegador.</p>
+
+        <h2>3. Estrutura de Arquivos</h2>
+        <pre><code>/
+├── index.html            # Player principal
+├── documentation.html    # Esta página
+├── index.json            # Lista de apresentações
+├── lib/                  # Código fonte (Core)
+└── content/              # Pasta das apresentações
+    └── aula-01/
+        ├── slides.md     # Roteiro
+        └── imagem.jpg</code></pre>
+
+        <h2>4. Referência da Linguagem</h2>
+        
+        <h3>4.1. Definição de Slides</h3>
+        <p>Use três traços <code>---</code> para separar um slide do outro.</p>
+        <pre><code># Slide 1
+Conteúdo...
+---
+# Slide 2
+Conteúdo...</code></pre>
+
+        <h3>4.2. Blocos de Layout</h3>
+        <p>Use <code>::: tipo</code> para criar estruturas.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>row</code></td>
+                    <td>Cria uma linha horizontal. Filhos ficam lado a lado.</td>
+                </tr>
+                <tr>
+                    <td><code>col</code></td>
+                    <td>Cria uma coluna vertical.</td>
+                </tr>
+                <tr>
+                    <td><code>center</code></td>
+                    <td>Centraliza todo o conteúdo (capas, títulos).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>4.3. Componentes Especiais</h3>
+        <p>Use <code>:: nome { params }</code> para inserir objetos ricos.</p>
+
+        <h4>Imagem (com Zoom)</h4>
+        <pre><code>:: image { "src": "foto.jpg", "alt": "Legenda" }</code></pre>
+
+        <h4>YouTube</h4>
+        <pre><code>:: youtube { "id": "dQw4w9WgXcQ" }</code></pre>
+
+        <h4>Iframe Genérico</h4>
+        <pre><code>:: iframe { "src": "https://url-do-embed.com" }</code></pre>
+
+        <h2>5. Funcionalidades do Player</h2>
+        <ul>
+            <li><strong>Navegação:</strong> Scroll suave, teclas de seta ou menu lateral.</li>
+            <li><strong>Auto-Save:</strong> O sistema lembra em qual slide você parou ao recarregar a página.</li>
+            <li><strong>Zoom:</strong> Clique em qualquer imagem gerada com <code>:: image</code> para ampliar e arrastar.</li>
+        </ul>
+        
+        <br><br>
+        <hr>
+        <p style="text-align: center; margin-top: 40px;">
+            <a href="index.html" class="btn-back">Voltar ao Menu Principal</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SlideDown</title>
+
+    <link rel="stylesheet" href="lib/style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <script src="lib/parser.js"></script>
+    <script src="lib/renderer.js"></script>
+    <script src="lib/navigation.js"></script>
+    <script src="lib/themes.js"></script>
+  </head>
+  <body>
+    <div id="loading">Loading...</div>
+    <div id="scrolly-container"></div>
+
+    <div id="menu-container" style="display:none; padding: 40px;">
+    <h1>SlideDown 
+    
+        <a href="documentation.html" style="color: var(--accent-color); text-decoration: none; border-bottom: 1px dashed var(--accent-color);">
+          📖
+        </a>
+    </h1>
+    
+    <h2 style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 20px;">Apresentações Disponíveis</h2>
+    <div id="list-wrapper">
+        <ul id="presentation-list"></ul>
+    </div>
+</div>
+
+    <script>
+
+      async function init() {
+        // Inicializa gerenciador de temas
+        if (window.themeManager) window.themeManager.init();
+
+        const loadingEl = document.getElementById("loading");
+        const menuEl = document.getElementById("menu-container");
+        const containerEl = document.getElementById("scrolly-container"); // Referência ao container
+
+        // 1. Ler parâmetros da URL
+        const params = new URLSearchParams(window.location.search);
+        const folderName = params.get("p");
+        // Remove trailing slash if present
+        const fParam = params.get("f") ? params.get("f").replace(/\/$/, "") : null;
+        const baseContentPath = fParam || "content";
+
+        // --- MODO MENU (Se não tem 'p' na URL) ---
+        if (!folderName) {
+          loadingEl.style.display = "none";
+
+          // CORREÇÃO: Esconde o container de slides para não ocupar espaço
+          containerEl.style.display = "none";
+
+          // Mostra o menu
+          menuEl.style.display = "block";
+
+          loadMenu(baseContentPath, fParam);
+          return;
+        }
+
+        // --- MODO APRESENTAÇÃO ---
+        try {
+          // Garante que o menu está escondido e o container visível
+          menuEl.style.display = "none";
+          containerEl.style.display = "block";
+
+          // ... (resto do código de carregamento: fetch, parser, renderer) ...
+          const basePath = `${baseContentPath}/${folderName}/`;
+          const mdUrl = `${basePath}slides.md`;
+
+          const response = await fetch(mdUrl);
+          if (!response.ok)
+            throw new Error(`Apresentação não encontrada: ${folderName}`);
+          const markdownText = await response.text();
+
+          const parser = new ScrollyParser();
+          const renderer = new ScrollyRenderer("scrolly-container", {
+            basePath: basePath,
+          });
+
+          renderer.render(parser.parse(markdownText));
+
+          const nav = new ScrollyNavigation('scrolly-container', folderName);
+          nav.init();
+
+          loadingEl.style.display = "none";
+        } catch (error) {
+          // Em caso de erro, esconde container e mostra mensagem
+          loadingEl.style.display = "none";
+          containerEl.style.display = "none";
+          menuEl.style.display = "block";
+          menuEl.innerHTML = `<h1>Erro</h1><p>${error.message}</p><a href="index.html">Voltar ao Início</a>`;
+        }
+      }
+      // Função extra para listar aulas (lendo de um arquivo json estático)
+      async function loadMenu(basePath, fParam) {
+        try {
+          // Você precisa criar um arquivo index.json na raiz listando suas pastas
+          const response = await fetch(`${basePath}/index.json`);
+          const presentations = await response.json();
+          const list = document.getElementById("presentation-list");
+          presentations.forEach((item) => {
+            const li = document.createElement("li");
+            const fQuery = fParam ? `&f=${encodeURIComponent(fParam)}` : "";
+            li.innerHTML = `<a href="?p=${item.folder}${fQuery}" style="color:var(--accent-color); font-size:1.5rem;">${item.title}</a>`;
+            list.appendChild(li);
+          });
+        } catch (e) {
+          document.getElementById("presentation-list").innerHTML =
+            "<li>Crie um arquivo 'index.json' para listar suas aulas aqui.</li>";
+        }
+      }
+
+      window.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>

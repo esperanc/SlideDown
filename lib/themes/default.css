@@ -1,0 +1,25 @@
+:root {
+    /* --- CONTROLE DE TAMANHO (ZOOM GLOBAL) --- */
+    /* Altere este valor para aumentar/diminuir tudo proporcionalmente */
+    --base-size: 32px;
+
+    /* --- PALETA DE CORES (Dark Theme) - ORIGINAL --- */
+    --bg-app: #0f0f11;
+    --bg-slide: #1e1e24;
+    --bg-panel: #2a2a32;
+    --text-primary: #e0e0e0;
+    --text-secondary: #cacaca;
+    --accent-color: #7aa2f7;
+
+    --border-radius-lg: 24px;
+    --border-radius-md: 12px;
+
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "Fira Code", "Consolas", monospace;
+
+    /* Helper para destacar texto se precisar */
+    --code-bg: rgba(255, 255, 255, 0.1);
+    --code-color: #ff9e64;
+
+    --table-border: rgba(255, 255, 255, 0.1);
+}
