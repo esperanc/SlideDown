@@ -40,12 +40,16 @@ console.log(demo);
 
 Embed images and videos easily.
 
+::: row
+::: col
 ## Images (Optional Quotes!)
 :: image src=https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1000&q=80 alt=Coding
-
+:::
+::: col
 ## YouTube
 :: youtube id=dQw4w9WgXcQ
-
+:::
+:::
 ---
 
 # Layouts

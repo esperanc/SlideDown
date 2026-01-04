@@ -9,7 +9,7 @@
 
 Scroll down to reveal items one by one.
 
-::: reveal
+::: reveal*
 - First item appears
 - Second item follows
 - Third item completes the list

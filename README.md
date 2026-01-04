@@ -108,17 +108,39 @@ Just use standard markdown code fences.
 \`\`\`python
 def hello():
     print("Hello World!")
-\`\`\`
+```
 
 ## Advanced Usage
 
 ### URL Parameters
-You can customize the presentation loading using URL parameters:
+- `?p=folder_name`: Loads the presentation from `content/folder_name`.
+- `?f=https://example.com/my-slides`: Sets a custom base URL for content. The app will look for `index.json` and slides at this URL.
 
-- `?p=folder_name`: Loads a specific presentation from the content folder.
-    - Example: `index.html?p=demo-features`
-- `?f=custom_content_root`: Sets a custom root folder for content content (default is `content`).
-    - Example: `index.html?f=my_slides&p=presentation1`
+## Hosting Content Separately
+You can host your slides in a separate repository (e.g., `https://esperanc.github.io/Python-2026`) and use SlideDown as a viewer.
+
+1.  **Repository Structure**: Your content repo should have an `index.json` and folder(s) with `slides.md`.
+2.  **Redirect**: To make your content repo URL open SlideDown automatically, create an `index.html` in your content repo with the following redirect code:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=https://esperanc.github.io/SlideDown?f=https://esperanc.github.io/Python-2026">
+    <script>
+        // Redirect logic to handle sub-paths/parameters if needed
+        const targetBase = "https://esperanc.github.io/SlideDown";
+        const contentUrl = "https://esperanc.github.io/Python-2026";
+        window.location.href = `${targetBase}?f=${contentUrl}`;
+    </script>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <p>Redirecting to presentation viewer...</p>
+</body>
+</html>
+```
 
 ## Running Locally
 
