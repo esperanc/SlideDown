@@ -1,6 +1,10 @@
 [
     {
-        "folder": "aula1",
-        "title": "Fundamentos e Ambiente"
+        "folder": "demo-features",
+        "title": "General Features"
+    },
+    {
+        "folder": "demo-scrolly",
+        "title": "Scrollytelling Demo"
     }
 ]

@@ -369,7 +369,7 @@ img {
 #menu-container h1 {
   font-size: 3.5rem;
   margin: 0 0 1rem 0;
-  background: linear-gradient(90deg, #fff, #a0a0b0);
+  background: var(--title-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -437,4 +437,12 @@ img {
 
 li.reveal-item {
   margin-bottom: 0.8em;
+}
+
+button {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  cursor: pointer;
 }

@@ -1,0 +1,12 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg" style="fill:none; stroke-linecap:round;">
+      <rect width="100%" height="100%" fill="#F3F3F7" />
+
+
+<path stroke="#663399" stroke-width="2" d="M 200,200 300,200 300,100" />'
+
+<g transform="rotate(180.0,300.0,100.0) translate(300.0, 100.0)">
+    <circle stroke="#63A375" stroke-width="2" fill="transparent" r="5.5" cx="0" cy="0"/>
+    <polygon points="0,12 2,9 -2,9" style="fill:#63A375;stroke:#63A375;stroke-width:2"/>
+</g>
+
+</svg>

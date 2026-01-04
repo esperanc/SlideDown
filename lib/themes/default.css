@@ -11,6 +11,8 @@
     --text-secondary: #cacaca;
     --accent-color: #7aa2f7;
 
+    --title-gradient: linear-gradient(90deg, #fff, #a0a0b0);
+
     --border-radius-lg: 24px;
     --border-radius-md: 12px;
 
@@ -22,4 +24,11 @@
     --code-color: #ff9e64;
 
     --table-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Override para melhor contraste em comentários no tema escuro */
+.hljs-comment {
+    color: #9ca0a6 !important;
+    /* Cinza claro bem legível */
+    font-style: italic;
 }
