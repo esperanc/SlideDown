@@ -446,3 +446,23 @@ button {
   padding: 10px 20px;
   cursor: pointer;
 }
+
+/* --- GITHUB LINK --- */
+.github-link {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  color: var(--text-secondary);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.github-link:hover {
+  color: var(--accent-color);
+  opacity: 1;
+  transform: scale(1.1);
+}
