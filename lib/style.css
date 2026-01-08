@@ -166,22 +166,18 @@ img {
 
 /* --- ZOOM WRAPPER (Imagens com Zoom) --- */
 .zoom-wrapper {
-  flex: 1;
+  flex: 1 0 auto;
+  /* Grow, but never shrink below content */
   width: 100%;
   height: 100%;
-  /* Garante que ocupa a altura total do pai */
-  min-height: 0;
-  /* Fix para Flexbox em alguns browsers */
+  min-height: 150px;
+  /* Ensures image is always visible */
   position: relative;
   overflow: hidden;
   border-radius: var(--border-radius-md);
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); removido para evitar sombra no wrapper vazio */
-  /* background: var(--bg-panel); */
   display: flex;
   justify-content: center;
-  /* Centraliza horizontalmente */
   align-items: center;
-  /* Centraliza verticalmente */
 }
 
 .zoom-wrapper img {
@@ -448,45 +444,11 @@ li.reveal-item {
   margin-bottom: 0.8em;
 }
 
-/* --- SCROLL SWAP (Scroll Separator) --- */
-.scroll-swap-container {
-  display: flex;
-  flex-direction: column;
-  /* Default stack, but only one visible */
-  height: 100%;
-  /* Fill slide part */
-  width: 100%;
-}
-
-.scroll-swap-item {
-  display: none;
-  /* Hidden by default */
-  flex: 1;
-  width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  animation: fadeIn 0.4s ease;
-}
-
-.scroll-swap-item.swap-visible {
-  display: block;
-  /* Flex children usually block-ified */
-  /* If the container is a row (flex-row), we want this item to fill it. */
-  /* But wait, parser puts 'row' class on the container too. */
-  /* .layout-row sets flex-direction: row. */
-  /* If we have ONE child (the visible segment), it works fine. */
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* --- OVERFLOW SCROLLING --- */
+.has-overflow {
+  overflow: hidden;
+  /* Hide scrollbar, we control scroll programmatically */
+  scroll-behavior: smooth;
 }
 
 button {

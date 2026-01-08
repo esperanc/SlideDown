@@ -6,5 +6,13 @@
     {
         "folder": "demo-scrolly",
         "title": "Scrollytelling Demo"
+    },
+    {
+        "folder": "test-image",
+        "title": "Image Test"
+    },
+    {
+        "folder": "test-overflow",
+        "title": "Overflow Detection Test"
     }
 ]
