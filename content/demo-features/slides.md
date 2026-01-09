@@ -7,6 +7,8 @@
 
 # Markdown Support
 
+SlideDown extends [Markdown](https://www.markdownguide.org) with a few simple directives to handle layout and interactivity.
+
 You can write **bold**, *italic*, and `inline code`.
 
 > Blockquotes are also supported and styled beautifully.
@@ -17,7 +19,6 @@ Lists work as expected:
     - Subitem
 
 ---
-
 # Syntax Highlighting
 
 We support automatic syntax highlighting for code blocks.
@@ -36,19 +37,15 @@ console.log(demo);
 
 ---
 
-# Components
+# Embed images and videos easily.
 
-Embed images and videos easily.
-
-::: row
 ::: col
-## Images (Optional Quotes!)
-:: image src=https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1000&q=80 alt=Coding
+## Images 
+:: image src=https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80 alt=Coding
 :::
 ::: col
 ## YouTube
 :: youtube id=dQw4w9WgXcQ
-:::
 :::
 ---
 

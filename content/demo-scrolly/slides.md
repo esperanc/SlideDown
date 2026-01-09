@@ -48,4 +48,4 @@ left(90)
 
 # The End
 ## Ready to create your own?
-Check the documentation.
+Check the [documentation](https://esperanc.github.io/SlideDown).
