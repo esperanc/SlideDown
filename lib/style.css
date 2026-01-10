@@ -83,19 +83,21 @@ body {
 .layout-row {
   display: flex;
   flex-direction: row;
-  flex: 1;
+  flex-wrap: wrap;
+  flex: 1 0 auto;
+  /* Grow to fill space, don't shrink below content */
   width: 100%;
   gap: 2%;
-  min-height: 0;
+
 }
 
 .layout-col {
   display: flex;
   flex-direction: column;
   flex: 1;
-  height: 100%;
   gap: 2%;
   min-height: 0;
+  min-width: 0;
 }
 
 /* Centralização (::: center / ::: section) */
@@ -121,15 +123,35 @@ body {
   color: #ff4444;
 }
 
-/* Filhos diretos (Painéis) */
+/* Direct children share space and can scroll */
 .layout-row>*,
 .layout-col>* {
-  flex: 1;
+  flex: 1 1 0;
   overflow-y: auto;
   min-width: 0;
   min-height: 0;
   scrollbar-width: thin;
   scrollbar-color: var(--bg-panel) transparent;
+}
+
+/* Elements with overflow need constrained height to enable scrolling */
+.has-overflow {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Columns in rows should NOT wrap - they share horizontal space equally */
+.layout-row>.layout-col {
+  flex: 1 1 45%;
+  min-width: 45%;
+}
+
+/* Text content in rows takes full width and wraps below other elements */
+.layout-row>.md-content {
+  flex: 0 0 100%;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* --- COMPONENTES BÁSICOS --- */
@@ -166,13 +188,12 @@ img {
 
 /* --- ZOOM WRAPPER (Imagens com Zoom) --- */
 .zoom-wrapper {
-  flex: 1 1 0;
-  /* Grow AND shrink to fit available space */
+  flex: 0 0 auto;
+  /* Don't shrink - maintain size */
   width: 100%;
   min-width: 150px;
-  min-height: 150px;
-  /* Max constraints to prevent overflow */
-  max-height: 100%;
+  height: max(40vh, 200px);
+  /* Explicit height so it doesn't collapse */
   max-width: 100%;
   position: relative;
   overflow: hidden;
@@ -180,6 +201,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .zoom-wrapper img {
@@ -200,6 +222,7 @@ img {
 /* --- MARKDOWN CONTENT --- */
 .md-content {
   flex: 0 0 auto;
+  width: 100%;
   line-height: 1.2;
   font-size: 1.05rem;
   /* Medida relativa à base */

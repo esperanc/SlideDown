@@ -43,7 +43,9 @@ Visible immediately.
 ::: col reveal
 ### Column 2
 Should appear after 1 step.
+:: image src="https://placehold.co/400x400"
 :::
-
 --- 
-# Another Slide
+:::center
+:: image src="https://placehold.co/1920x1080"
+:::
