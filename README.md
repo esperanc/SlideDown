@@ -39,7 +39,7 @@ Content...
 ```
 
 ### Layouts
-Use `:::` to create blocks. Common blocks include `row`, `col`, and `center`.
+Use `:::` to create blocks. Common blocks include `row`, `col` (or `column`), and `center`.
 
 ```markdown
 ::: row
@@ -58,9 +58,11 @@ Content here
 Use `::` to insert components. Attributes can be unquoted (if no spaces) or quoted.
 
 **Images**:
+Use `:: image` or `:: img`. Supports `width`, `height`, and `style` attributes.
 ```markdown
 :: image src=my-image.png width=500
-:: image src="image with spaces.png" alt="My Description"
+:: img src="image with spaces.png" alt="My Description" width=100% height=300px
+:: image src=photo.jpg style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1)"
 ```
 
 **YouTube**:

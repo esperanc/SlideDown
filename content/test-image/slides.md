@@ -3,12 +3,12 @@
 ---
 # Image Test
 ::: col
-### Wide Image Test
+### Image Test
 :: image src="https://placehold.co/600x400"
 :::
 ::: col
 ### Wide Image Test
-:: image src="https://placehold.co/600x400"
+:: image src="https://placehold.co/600x400" width=100%
 :::
 ---
 # Image Test

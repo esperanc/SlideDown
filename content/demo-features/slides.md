@@ -41,7 +41,7 @@ console.log(demo);
 
 ::: col
 ## Images 
-:: image src=https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80 alt=Coding
+:: image src=https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80 alt=Coding width=100%
 :::
 ::: col
 ## YouTube
