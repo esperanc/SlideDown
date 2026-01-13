@@ -2,8 +2,6 @@
 
 ::: col
 :: image src="https://placehold.co/400x300"
-
-
 :::
 
 ::: col
