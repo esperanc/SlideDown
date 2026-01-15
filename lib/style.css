@@ -23,13 +23,17 @@ body {
   /* scroll-behavior: smooth; -- disabled, using JS animation instead */
   scrollbar-width: thin;
   scrollbar-color: var(--bg-panel) var(--bg-app);
+  /* Add top/bottom padding instead of slide margins for proper offsetTop calculation */
+  padding: 20px 0;
+  box-sizing: border-box;
 }
 
 /* --- SLIDE (Estilo Card Flutuante) --- */
 .slide {
   height: calc(100vh - 40px);
   width: calc(100% - 40px);
-  margin: 20px auto;
+  /* Only left/right/bottom margin - no top margin to keep offsetTop at 0 for first slide */
+  margin: 0 auto 20px auto;
 
   scroll-snap-align: center;
 
@@ -319,12 +323,16 @@ img {
 
 
 
-/* --- RESPONSIVIDADE (Mobile) --- */
+/* ---RESPONSIVIDADE (Mobile) --- */
 @media (max-width: 768px) {
+  #scrolly-container {
+    padding: 10px 0;
+  }
+
   .slide {
     height: calc(100vh - 20px);
     width: calc(100% - 20px);
-    margin: 10px auto;
+    margin: 0 auto 10px auto;
     padding: 1.5rem;
     border-radius: var(--border-radius-md);
   }
