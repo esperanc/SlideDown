@@ -1,3 +1,40 @@
+# test 1 - no overflow
+:::col
+- `stroke(color)`
+- `fill(color)`
+- `noStroke()`
+- `noFill()`
+- `strokeWeight(width)`
+:::
+::: col
+`color` pode ser:
+- 1 número de 0 a 255 => Tom de cinza
+- 3 números de 0 a 255 => RGB
+- 4 números de 0 a 255 => RGBA
+:::
+---
+# test 2 - overflow
+:::col
+- `stroke(color)`
+- `fill(color)`
+- `noStroke()`
+- `noFill()`
+- `strokeWeight(width)`
+:::
+::: col
+`color` pode ser:
+- 1 número de 0 a 255 => Tom de cinza
+- 3 números de 0 a 255 => RGB
+- 4 números de 0 a 255 => RGBA
+- String com especificação css:
+  - Nome de cor: `yellow`, `brown`, etc
+  - Hexadecimal: `#ff0000`, `#00ff00`, `#0000ff`
+  - RGB: `rgb(255, 0, 0)`, `rgb(0, 255, 0)`, `rgb(0, 0, 255)`
+  - RGBA: `rgba(255, 0, 0, 0.5)`, `rgba(0, 255, 0, 0.5)`, `rgba(0, 0, 255, 0.5)`
+  - HSL: `hsl(0, 100%, 50%)`, `hsl(120, 100%, 50%)`, `hsl(240, 100%, 50%)`
+  - HSLA: `hsla(0, 100%, 50%, 0.5)`, `hsla(120, 100%, 50%, 0.5)`, `hsla(240, 100%, 50%, 0.5)`
+::: 
+---
 # Overflow Test
 
 ::: col

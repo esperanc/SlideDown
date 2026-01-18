@@ -127,21 +127,28 @@ body {
   color: #ff4444;
 }
 
-/* Direct children share space and can scroll */
+/* Direct children share equal space */
 .layout-row>*,
 .layout-col>* {
   flex: 1 1 0;
-  overflow-y: auto;
   min-width: 0;
   min-height: 0;
+}
+
+/* Elements with overflow need constrained height to enable scrolling */
+/* But NOT slide-content or layout-col - they should expand naturally */
+.has-overflow:not(.layout-col):not(.slide-content) {
+  max-height: 80vh;
+  overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--bg-panel) transparent;
 }
 
-/* Elements with overflow need constrained height to enable scrolling */
-.has-overflow {
-  max-height: 80vh;
-  overflow-y: auto;
+/* Layout columns and slide-content should never be height-constrained */
+.layout-col.has-overflow,
+.slide-content.has-overflow {
+  max-height: none;
+  overflow-y: visible;
 }
 
 /* Columns in rows should NOT wrap - they share horizontal space equally */
