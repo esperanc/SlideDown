@@ -1,0 +1,16 @@
+/* FONT THEME: Modern Sans-Serif (Distinctive) */
+:root {
+    --font-main: "Trebuchet MS", Verdana, "Segoe UI", sans-serif;
+    --font-mono: "Fira Code", "Consolas", "Monaco", monospace;
+}
+
+/* Optimize Trebuchet MS spacing */
+body {
+    letter-spacing: 0.01em;
+}
+
+h1,
+h2,
+h3 {
+    letter-spacing: -0.01em;
+}

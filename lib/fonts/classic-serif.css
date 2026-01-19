@@ -1,0 +1,14 @@
+/* FONT THEME: Classic Serif */
+:root {
+    --font-main: "Georgia", "Times New Roman", "Palatino Linotype", "Book Antiqua", serif;
+    --font-mono: "Courier New", "Courier", monospace;
+}
+
+/* Adjust line height for better serif readability */
+body {
+    line-height: 1.6;
+}
+
+.md-content {
+    line-height: 1.7;
+}

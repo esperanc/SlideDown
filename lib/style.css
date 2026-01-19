@@ -328,6 +328,29 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* --- KATEX MATH EQUATIONS --- */
+/* Display equations (block) */
+.katex-display {
+  margin: 1.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Base KaTeX sizing */
+.katex {
+  font-size: 1.1em;
+}
+
+/* Make display equations slightly larger */
+.katex-display>.katex {
+  font-size: 1.3em;
+}
+
+/* Ensure equations inherit theme colors */
+.katex .mord.text {
+  color: var(--text-primary);
+}
+
 
 
 /* ---RESPONSIVIDADE (Mobile) --- */

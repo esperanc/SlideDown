@@ -1,0 +1,24 @@
+/* FONT THEME: Elegant Serif */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap');
+
+:root {
+    --font-main: "Crimson Pro", Georgia, "Times New Roman", serif;
+    --font-mono: "Source Code Pro", "Courier New", monospace;
+}
+
+/* Optimize for elegant serif */
+body {
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+}
+
+.md-content {
+    line-height: 1.75;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
