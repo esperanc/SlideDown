@@ -22,6 +22,7 @@ You can verify the source code for these demos in the `content/` folder of this 
 - **Components**: Built-in support for Images (with zoom), YouTube embeds and Iframes.
 - **Theming**: Built-in Dark and Light color themes (Toggle with 'T').
 - **Font Themes**: 4 distinct font styles from classic serif to modern sans-serif (Cycle with 'F').
+- **Smart Zoom**: Automatically maintains slide position when browser zoom changes.
 
 ## SlideDown Language Guide
 
