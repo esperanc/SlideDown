@@ -1,6 +1,15 @@
-# SlideDown
+<div align="center">
+  <img src="logo.png" alt="SlideDown Logo" width="400">
+  
+  <!-- Alternative compact version: -->
+  <!-- <img src="emblem.png" alt="SlideDown Emblem" width="120"> -->
+  
+  <p><strong>A minimalist, markdown-based presentation framework designed for developers and educators.</strong></p>
+</div>
 
-SlideDown is a minimalist, markdown-based presentation framework designed for developers and educators. It combines the simplicity of Markdown with powerful "scrollytelling" capabilities, allowing you to create immersive, scroll-driven presentations without writing a single line of JavaScript.
+---
+
+SlideDown combines the simplicity of Markdown with powerful "scrollytelling" capabilities, allowing you to create immersive, scroll-driven presentations without writing a single line of JavaScript.
 
 ## Live Demo
 
