@@ -17,9 +17,11 @@ You can verify the source code for these demos in the `content/` folder of this 
 - **Scrollytelling**: Create progressive reveals and sticky layouts simply by scrolling.
 - **Zero Build Step**: No webpack, no build process. Just serve `index.html`.
 - **Syntax Highlighting**: Automatic highlighting for code blocks (Python, JS, etc.).
+- **Math Equations**: Beautiful LaTeX-style math rendering with KaTeX support.
 - **Flexible Layouts**: Easily create multi-column layouts.
 - **Components**: Built-in support for Images (with zoom), YouTube embeds and Iframes.
-- **Theming**: Built-in Dark and Light modes (Toggle with 'T').
+- **Theming**: Built-in Dark and Light color themes (Toggle with 'T').
+- **Font Themes**: 4 distinct font styles from classic serif to modern sans-serif (Cycle with 'F').
 
 ## SlideDown Language Guide
 
@@ -111,6 +113,46 @@ Just use standard markdown code fences.
 def hello():
     print("Hello World!")
 ```
+
+### Math Equations (KaTeX)
+SlideDown supports beautiful LaTeX-style math rendering using KaTeX.
+
+**Inline Math**:
+Use single dollar signs for inline equations.
+```markdown
+The famous equation $E = mc^2$ was discovered by Einstein.
+The quadratic formula is $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$.
+```
+
+**Display Math**:
+Use double dollar signs for centered display equations.
+```markdown
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+$$
+\sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+$$
+```
+
+KaTeX supports most LaTeX math syntax including Greek letters, matrices, integrals, summations, and more.
+
+### Font Themes
+SlideDown includes 4 distinct font themes that work independently from color themes:
+
+1. **Modern Sans** (Default) - Clean, readable sans-serif fonts
+2. **Classic Serif** - Traditional serif fonts for academic content
+3. **Tech Modern** - Contemporary web fonts (Inter, JetBrains Mono)
+4. **Elegant Serif** - Sophisticated serif fonts (Crimson Pro, Source Code Pro)
+
+**Keyboard Shortcuts**:
+- Press **`F`** to cycle through font themes
+- Press **`T`** to toggle between dark/light color themes
+
+Your font theme preference is automatically saved and remembered across sessions.
+
+**Note**: Tech Modern and Elegant Serif themes require an internet connection to load fonts from Google Fonts.
 
 ## Advanced Usage
 
