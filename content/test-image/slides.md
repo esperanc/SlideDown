@@ -1,3 +1,31 @@
+# Image and code
+:::col  
+```python
+f = 5
+while f < 200:
+    forward(f)
+    f = f+5  # Não esquecer de incrementar!
+    left(95)
+```
+:::
+:::col
+:: image { "src": "https://placehold.co/400x400"}
+:::
+---
+# Image and code and reveal
+:::col  
+```python
+f = 5
+while f < 200:
+    forward(f)
+    f = f+5  # Não esquecer de incrementar!
+    left(95)
+```
+:::
+:::col reveal
+:: image { "src": "https://placehold.co/400x400"}
+:::
+---
 # A big landscape image
 :: image src="https://placehold.co/1600x600"
 ---
