@@ -14,5 +14,13 @@
     {
         "folder": "test-overflow",
         "title": "Overflow Detection Test"
+    },
+    {
+        "folder": "test-ratio",
+        "title": "Ratio Test"
+    },
+    {
+        "folder": "test-math",
+        "title": "Math Test"
     }
 ]
