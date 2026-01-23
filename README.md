@@ -27,8 +27,8 @@ You can verify the source code for these demos in the `content/` folder of this 
 - **Zero Build Step**: No webpack, no build process. Just serve `index.html`.
 - **Syntax Highlighting**: Automatic highlighting for code blocks (Python, JS, etc.).
 - **Math Equations**: Beautiful LaTeX-style math rendering with KaTeX support.
-- **Flexible Layouts**: Easily create multi-column layouts.
-- **Components**: Built-in support for Images (with zoom), YouTube embeds and Iframes.
+- **Flexible Layouts**: Easily create multi-column layouts with custom ratios (e.g., 30/70 splits).
+- **Components**: Built-in support for Images (with zoom & sizing), YouTube embeds and Iframes.
 - **Theming**: Built-in Dark and Light color themes (Toggle with 'T').
 - **Font Themes**: 4 distinct font styles from classic serif to modern sans-serif (Cycle with 'F').
 - **Smart Zoom**: Automatically maintains slide position when browser zoom changes.
@@ -53,6 +53,7 @@ Content...
 ### Layouts
 Use `:::` to create blocks. Common blocks include `row`, `col` (or `column`), and `center`.
 
+**Basic Two-Column Layout**:
 ```markdown
 ::: row
 ::: col
@@ -66,16 +67,48 @@ Content here
 :::
 ```
 
+**Custom Column Ratios**:
+Control the width of columns (or height of rows) using the `ratio` parameter. You can specify the ratio as a percentage either with `ratio=XX%` or as a standalone `XX%` value.
+
+```markdown
+::: row
+::: col ratio=30%
+# Narrow Left (30%)
+:::
+::: col ratio=70%
+# Wide Right (70%)
+:::
+:::
+
+# Alternative syntax (standalone percentage):
+::: row
+::: col 40%
+# 40% width
+:::
+::: col 60%
+# 60% width
+:::
+:::
+```
+
+**Note**: The framework automatically accounts for gaps between columns, ensuring your ratios work correctly even with the built-in 2% spacing.
+
 ### Components
 Use `::` to insert components. Attributes can be unquoted (if no spaces) or quoted.
 
 **Images**:
-Use `:: image` or `:: img`. Supports `width`, `height`, and `style` attributes.
+Use `:: image` or `:: img`. All images support click-to-zoom functionality. Supports `width`, `height`, and `style` attributes.
 ```markdown
 :: image src=my-image.png width=500
 :: img src="image with spaces.png" alt="My Description" width=100% height=300px
 :: image src=photo.jpg style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1)"
 ```
+
+**Image Sizing**:
+- Use `width=100%` to make images fill their container (works perfectly with column ratios)
+- Use pixel values like `width=400` for fixed sizes
+- Mix with column ratios for precise layouts (e.g., image with `width=100%` in a `col ratio=40%`)
+- Images can be zoomed by clicking on them and dragged when zoomed
 
 **YouTube**:
 ```markdown
@@ -115,6 +148,23 @@ Keep one column fixed while the other reveals content.
 :::
 :::
 ```
+
+**Combining Ratios with Reveals**:
+You can combine column ratios with reveal effects for powerful presentations:
+
+```markdown
+::: row
+::: col ratio=40%
+:: image src=diagram.png width=100%
+:::
+::: col ratio=60% reveal
+- First explanation point
+- Second explanation point
+- Third explanation point
+:::
+:::
+```
+
 
 ### Syntax Highlighting
 Just use standard markdown code fences.
