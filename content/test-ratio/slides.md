@@ -1,3 +1,11 @@
+# Test col ratio with images
+:::col ratio=40%
+:: image src="https://placehold.co/600x400/gray/white" width="100%"
+:::
+::: col ratio=60%
+:: image src="https://placehold.co/600x400/darkgray/white" width="100%"
+:::
+---
 # Test Col Ratio
 
 ::: col ratio=40%

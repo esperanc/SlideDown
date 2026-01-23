@@ -202,10 +202,7 @@ img {
   flex: 0 0 auto;
   /* Don't shrink - maintain size */
   width: 100%;
-  min-width: 40vw;
-  min-height: 40vh;
-  /* Explicit height so it doesn't collapse 
-  max-width: 100%; */
+  /* Removed min-width and min-height to respect container constraints */
   position: relative;
   overflow: hidden;
   border-radius: var(--border-radius-md);
