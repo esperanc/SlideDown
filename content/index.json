@@ -1,26 +1,30 @@
-[
-    {
-        "folder": "demo-features",
-        "title": "General Features"
-    },
-    {
-        "folder": "demo-scrolly",
-        "title": "Scrollytelling Demo"
-    },
-    {
-        "folder": "test-image",
-        "title": "Image Test"
-    },
-    {
-        "folder": "test-overflow",
-        "title": "Overflow Detection Test"
-    },
-    {
-        "folder": "test-ratio",
-        "title": "Ratio Test"
-    },
-    {
-        "folder": "test-math",
-        "title": "Math Test"
-    }
-]
+{
+    "title": "SlideDown Presentations",
+    "subtitle": "Markdown-based scrollytelling presentations",
+    "presentations": [
+        {
+            "folder": "demo-features",
+            "title": "General Features"
+        },
+        {
+            "folder": "demo-scrolly",
+            "title": "Scrollytelling Demo"
+        },
+        {
+            "folder": "test-image",
+            "title": "Image Test"
+        },
+        {
+            "folder": "test-overflow",
+            "title": "Overflow Detection Test"
+        },
+        {
+            "folder": "test-ratio",
+            "title": "Ratio Test"
+        },
+        {
+            "folder": "test-math",
+            "title": "Math Test"
+        }
+    ]
+}
