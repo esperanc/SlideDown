@@ -227,6 +227,12 @@ img {
   display: block;
 }
 
+/* Ensure images in rows share space equally */
+.layout-row > .zoom-wrapper {
+  flex: 1 1 0;
+  width: auto;
+}
+
 /* --- MARKDOWN CONTENT --- */
 .md-content {
   flex: 0 0 auto;
@@ -326,6 +332,15 @@ img {
 }
 
 /* --- KATEX MATH EQUATIONS --- */
+/* Block container for display math ($$...$$) */
+.katex-block {
+  display: block;
+  text-align: center;
+  margin: 1.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 /* Display equations (block) */
 .katex-display {
   margin: 1.5em 0;

@@ -23,6 +23,10 @@
             "title": "Ratio Test"
         },
         {
+            "folder": "test-reveal",
+            "title": "Reveal Test"
+        },
+        {
             "folder": "test-math",
             "title": "Math Test"
         }

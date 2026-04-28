@@ -29,6 +29,9 @@ while f < 200:
 # A big landscape image
 :: image src="https://placehold.co/1600x600"
 ---
+# A big image with size constraints
+:: image src="https://placehold.co/1600x1600" height=70%
+---
 # Image Test
 ::: col
 ### Image Test
