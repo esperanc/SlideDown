@@ -661,3 +661,66 @@ button {
   opacity: 1;
   transform: scale(1.1);
 }
+
+/* --- PRINT / PDF EXPORT --- */
+@media print {
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: var(--bg-app) !important;
+  }
+
+  #scrolly-container {
+    overflow: visible !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+
+  .slide {
+    height: 100vh !important;
+    width: 100% !important;
+    margin: 0 !important;
+    page-break-after: always;
+    break-after: page;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  .slide.has-reveal {
+    height: 100vh !important;
+    padding: 0 !important;
+  }
+
+  .slide-content {
+    position: relative !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  /* Reveal all hidden items */
+  .reveal-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Hide UI */
+  #slide-nav, .github-link {
+    display: none !important;
+  }
+
+  /* Show overflowing content if needed, though usually slides shouldn't overflow in print */
+  .has-overflow {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
