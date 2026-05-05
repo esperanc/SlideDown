@@ -7,6 +7,10 @@
     --bg-app: #0f0f11;
     --bg-slide: #1e1e24;
     --bg-panel: #2a2a32;
+    --bg-overlay: rgba(0, 0, 0, 0.6);
+    --bg-overlay-hover: rgba(0, 0, 0, 0.8);
+    --border-overlay: rgba(255, 255, 255, 0.1);
+    --slider-track: rgba(255, 255, 255, 0.2);
     --text-primary: #e0e0e0;
     --text-secondary: #cacaca;
     --accent-color: #7aa2f7;

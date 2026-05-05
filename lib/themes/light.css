@@ -9,6 +9,10 @@
     /* Slide branco */
     --bg-panel: #eef1f6;
     /* Paineis/colunas num tom levemente separado */
+    --bg-overlay: rgba(255, 255, 255, 0.7);
+    --bg-overlay-hover: rgba(255, 255, 255, 0.9);
+    --border-overlay: rgba(0, 0, 0, 0.1);
+    --slider-track: rgba(0, 0, 0, 0.2);
 
     --text-primary: #2c3e50;
     /* Texto escuro quase preto */
