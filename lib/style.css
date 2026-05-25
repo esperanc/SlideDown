@@ -144,11 +144,19 @@ body {
   scrollbar-color: var(--bg-panel) transparent;
 }
 
-/* Layout columns and slide-content should never be height-constrained */
-.layout-col.has-overflow,
+/* Layout columns: height is constrained via inline style; allow scrolling */
+.layout-col.has-overflow {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-panel) transparent;
+}
+
+/* Slide-content wrapper scrolls the full card when the whole slide overflows */
 .slide-content.has-overflow {
   max-height: none;
-  overflow-y: visible;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-panel) transparent;
 }
 
 /* Columns in rows should NOT wrap - they share horizontal space equally */
