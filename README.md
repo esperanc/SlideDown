@@ -93,6 +93,33 @@ Control the width of columns (or height of rows) using the `ratio` parameter. Yo
 
 **Note**: The framework automatically accounts for gaps between columns, ensuring your ratios work correctly even with the built-in 2% spacing.
 
+**Explicit Sizes (`width` / `height`)**:
+Blocks also accept `width=XX%` and `height=YY%`.
+
+- `width=XX%` is the horizontal size inside the parent row (like `ratio`, but taken literally: `width=30%` stays 30%, it is only scaled down if the widths plus the gaps would not fit).
+- `height=YY%` is measured against the **window**: 100% is the vertical space from the point where the slide's first `:::row` starts down to the bottom of the card, minus its margin. A block without `height` is variable — it takes exactly the space its children need.
+
+```markdown
+# A slide two screens tall
+::: row height=100%
+::: col
+First screenful
+:::
+::: col
+:: image src=diagram.png
+:::
+:::
+::: row height=100%
+Second screenful
+:::
+```
+
+Because each row asks for a full screenful, the slide ends up taller than the window and **scrolls as a whole block** — the card slides up to reveal the next part, instead of each row scrolling on its own. Two `height=50%` rows, by contrast, fit side by side in a single screen.
+
+Images inside a block with an explicit height shrink to fit it. If the remaining content still does not fit, the block grows rather than clipping it (the requested height acts as a minimum) and the slide simply becomes taller.
+
+If the first block of a slide is a `:::col`, an enclosing `:::row` is inferred, so `::: col height=100%` works on its own.
+
 ### Components
 Use `::` to insert components. Attributes can be unquoted (if no spaces) or quoted.
 

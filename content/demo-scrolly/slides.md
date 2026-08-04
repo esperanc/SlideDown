@@ -2,6 +2,43 @@
 # Scrollytelling Demo
 ## Scroll down to see the magic
 :::
+---
+# Long slide with several parts
+:::row height=100%
+:::col
+Part 1 left
+- One
+- Two 
+- Three
+- Four 
+- Five
+- Six
+- Seven
+- Eight
+:::
+:::col
+Part 1 right
+:: image src="https://placehold.co/400x600" 
+:::
+:::
+:::row height=100%
+:::col
+Part 2 left
+:: image src="https://placehold.co/400x600" 
+:::
+:::col
+Part 2 right
+- One
+- Two 
+- Three
+- Four 
+- Five
+- Six
+- Seven
+- Eight
+:::
+:::
+
 
 ---
 

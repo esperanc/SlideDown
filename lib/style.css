@@ -135,6 +135,14 @@ body {
   min-height: 0;
 }
 
+/* Numa linha com altura pedida pelo autor (::: row height=XX%) os filhos não
+   a podem ultrapassar: uma imagem encolhe para caber em vez de a esticar.
+   Se nem assim couber, o JS devolve a altura automática à linha (passa a ser
+   um mínimo) e esta regra deixa de ter efeito, por ser indefinida. */
+.layout-row[data-sd-height]>* {
+  max-height: 100%;
+}
+
 /* Elements with overflow need constrained height to enable scrolling */
 /* But NOT slide-content or layout-col - they should expand naturally */
 .has-overflow:not(.layout-col):not(.slide-content) {
@@ -239,6 +247,14 @@ img {
 .layout-row > .zoom-wrapper {
   flex: 1 1 0;
   width: auto;
+}
+
+/* Dentro de um bloco com altura pedida pelo autor (::: row height=XX%) uma
+   imagem encolhe para caber, em vez de esticar o bloco para além da altura
+   pedida. Fora desses blocos mantém sempre o tamanho natural. */
+[data-sd-height] .zoom-wrapper {
+  flex-shrink: 1;
+  min-height: 0;
 }
 
 /* --- MARKDOWN CONTENT --- */
